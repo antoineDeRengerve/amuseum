@@ -1,0 +1,41 @@
+.welcome {
+  min-height: calc(100vh - var(--navbar-height) - var(--spacing-4xl));
+  background-image: url('../../images/welcome-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.welcome::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.welcome__content {
+  position: relative;
+  z-index: var(--z-base);
+  padding-top: var(--spacing-2xl);
+  text-align: center;
+  color: var(--color-light);
+}
+
+.welcome__title {
+  font-size: var(--font-size-4xl);
+  font-family: var(--font-family-heading);
+  margin-bottom: var(--spacing-lg);
+}
+
+.welcome__text {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.welcome__button {
+  font-size: var(--font-size-lg);
+}

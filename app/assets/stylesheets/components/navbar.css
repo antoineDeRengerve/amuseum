@@ -1,0 +1,19 @@
+:root {
+  --navbar-height: calc(2rem + 2 * var(--spacing-md));
+}
+
+.navbar {
+  width: 100%;
+  height: var(--navbar-height);
+  padding: var(--spacing-md) 0;
+  background-color: var(--color-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar__brand {
+  text-align: center;
+  font-size: var(--font-size-2xl);
+  font-weight: bold;
+  color: var(--color-primary);
+  font-family: var(--font-family-heading);
+}
