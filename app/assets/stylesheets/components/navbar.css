@@ -6,7 +6,7 @@
   width: 100%;
   height: var(--navbar-height);
   padding: var(--spacing-md) 0;
-  background-color: var(--color-light);
+  background-color: var(--color-secondary);
   box-shadow: var(--shadow-sm);
 }
 

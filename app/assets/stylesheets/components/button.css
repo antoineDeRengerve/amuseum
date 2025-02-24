@@ -18,7 +18,7 @@
 /* Button variants */
 .button--primary {
   background-color: var(--color-primary);
-  color: var(--color-light);
+  color: var(--color-secondary-light);
 }
 
 .button--primary:hover {
@@ -27,7 +27,7 @@
 
 .button--secondary {
   background-color: var(--color-secondary);
-  color: var(--color-light);
+  color: var(--color-primary-dark);
 }
 
 .button--secondary:hover {

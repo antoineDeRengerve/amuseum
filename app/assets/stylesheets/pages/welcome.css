@@ -1,10 +1,13 @@
 .welcome {
-  min-height: calc(100vh - var(--navbar-height) - var(--spacing-4xl));
-  background-image: url('../../images/welcome-background.jpg');
+  min-height: calc(100vh - var(--navbar-height));
+  background-image: url('/welcome-background-small.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome::before {
@@ -22,7 +25,11 @@
   z-index: var(--z-base);
   padding-top: var(--spacing-2xl);
   text-align: center;
-  color: var(--color-light);
+  color: var(--color-primary-dark);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 50%;
 }
 
 .welcome__title {
