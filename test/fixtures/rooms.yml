@@ -1,0 +1,18 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Room 1
+  room_background_url: /rooms/room-1.jpg
+  next_room_id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+
+two:
+  name: Room 2
+  room_background_url: /rooms/room-2.jpg
+  prev_room_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  next_room_id: <%= ActiveRecord::FixtureSet.identify(:three) %>
+
+three:
+  name: Room 3
+  room_background_url: /rooms/room-3.jpg
+  prev_room_id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+
