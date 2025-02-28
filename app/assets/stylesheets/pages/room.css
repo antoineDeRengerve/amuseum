@@ -1,0 +1,39 @@
+.room {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/welcome-background-small.jpg');
+  background-color: var(--color-primary-light);
+}
+
+.room__content {
+  position: relative;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: var(--spacing-2xl);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  max-width: 50%;
+}
+
+.room__title {
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-family-heading);
+  color: var(--color-primary-dark);
+}
+
+.room__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  z-index: var(--z-base);
+  position: absolute;
+  bottom: var(--spacing-2xl);
+  right: var(--spacing-2xl);
+}

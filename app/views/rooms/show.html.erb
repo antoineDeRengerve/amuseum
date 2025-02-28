@@ -1,0 +1,10 @@
+<div class="room" style="background-image: url(<%= asset_url(@room.room_background_url) rescue "" %>);">
+  <div class="room__content">
+    <h1 class="room__title"><%= @room.name %></h1>
+  </div>
+  <div class="room__buttons">
+    <%= link_to "Previous Room", room_path(@room.prev_room), class: "button button--secondary" if @room.prev_room %>
+    <%= link_to "Next Room", room_path(@room.next_room), class: "button button--secondary" if @room.next_room %>
+    <%= link_to "End Visit", root_path, class: "button button--secondary" unless @room.next_room %>
+  </div>
+</div>

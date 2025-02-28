@@ -3,6 +3,7 @@ class CreateRooms < ActiveRecord::Migration[8.0]
     create_table :rooms do |t|
       t.string :name
       t.string :room_background_url
+      t.boolean :is_first_room, default: false
       t.belongs_to :prev_room, null: true, foreign_key: {to_table: :rooms}
       t.belongs_to :next_room, null: true, foreign_key: {to_table: :rooms}
 
