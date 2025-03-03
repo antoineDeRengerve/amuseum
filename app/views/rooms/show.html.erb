@@ -5,6 +5,6 @@
   <div class="room__buttons">
     <%= link_to "Previous Room", room_path(@room.prev_room), class: "button button--secondary" if @room.prev_room %>
     <%= link_to "Next Room", room_path(@room.next_room), class: "button button--secondary" if @room.next_room %>
-    <%= link_to "End Visit", root_path, class: "button button--secondary" unless @room.next_room %>
+    <%= link_to "End Visit", root_path(visit_complete: true), class: "button button--secondary" unless @room.next_room %>
   </div>
 </div>

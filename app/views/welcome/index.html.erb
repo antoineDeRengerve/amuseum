@@ -1,3 +1,12 @@
+<% if params[:visit_complete] %>
+  <div class="modal" id="visitCompleteModal">
+    <div class="modal__content">
+      <h2 class="modal__title">Thank You for Your Visit!</h2>
+      <p class="modal__text">We hope you enjoyed exploring the AMuseum. Please come back soon!</p>
+      <button class="button button--secondary modal__close" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+<% end %>
 <div class="welcome">
   <div class="welcome__content">
     <h1 class="welcome__title">Welcome to the AMuseum</h1>
@@ -5,3 +14,9 @@
     <%= link_to "Enter", room_path(Room.first_room), class: "button button--primary welcome__button" %>
   </div>
 </div>
+<script>
+  function closeModal() {
+    const modal = document.getElementById('visitCompleteModal');
+    modal.style.display = 'none';
+  }
+</script>
