@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_25_141932) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_06_105542) do
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.string "room_background_url"
@@ -40,7 +40,26 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_25_141932) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  create_table "visitors", id: :string, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.datetime "last_activity_at"
+    t.integer "current_room_id"
+    t.integer "visitor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["current_room_id"], name: "index_visits_on_current_room_id"
+    t.index ["visitor_id"], name: "index_visits_on_visitor_id"
+  end
+
   add_foreign_key "rooms", "rooms", column: "next_room_id"
   add_foreign_key "rooms", "rooms", column: "prev_room_id"
   add_foreign_key "sessions", "users"
+  add_foreign_key "visits", "rooms", column: "current_room_id"
+  add_foreign_key "visits", "visitors"
 end

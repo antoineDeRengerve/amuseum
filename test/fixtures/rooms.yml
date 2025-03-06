@@ -4,6 +4,7 @@ one:
   name: Room 1
   room_background_url: /rooms/room-1.jpg
   next_room_id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+  is_first_room: true
 
 two:
   name: Room 2
