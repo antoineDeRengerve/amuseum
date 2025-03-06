@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3.4.2
 
 * System dependencies
 
@@ -23,6 +23,24 @@ Things you may want to cover:
 
 * ...
 
+## How to run
+
+* Clone project
+* Configure project
+```bash
+bundle install
+bin/rails db:setup
+bin/rails db:migrate
+bin/rails db:seed
+```
+* Run project: `bin/dev`
+* Connect to **http://localhost:3000**
+
+
+
+
+
+---- TO BE DELETED - PROBABLY ALREADY DOCUMENTED IN WIKI ----
 To be added in project:
 
 Choice frontend framework
