@@ -8,6 +8,9 @@
   padding: var(--spacing-md) 0;
   background-color: var(--color-secondary);
   box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar__brand {
@@ -16,4 +19,13 @@
   font-weight: bold;
   color: var(--color-primary);
   font-family: var(--font-family-heading);
+  text-decoration: none;
+}
+
+.navbar__visitor {
+  color: var(--color-primary);
+  font-size: var(--font-size-md);
+  margin-right: var(--spacing-md);
+  position: absolute;
+  left: var(--spacing-md);
 }

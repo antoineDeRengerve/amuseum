@@ -1,22 +1,11 @@
 class VisitsController < ApplicationController
-  def create
-    # Check visitor id and create a new visitor if needed
-    visitor_uuid = cookies.signed[:visitor_uuid]
-    if visitor_uuid.blank? || !Visitor.where(uuid: visitor_uuid).exists?
-      # Create visitor
-      visitor = Visitor.create
-      # Create cookie. Expires after 1 week.
-      cookies.signed[:visitor_uuid] = {
-        value: visitor.uuid,
-        expires: 1.week.from_now,
-        httponly: true,
-        secure: Rails.env.production?,
-        same_site: :strict
-      }
-    end
+  allow_unauthenticated_access
 
+  def create
+    # Check visitor id from cookie and create a new visitor if needed
+    ensure_visitor
     # Create visit
-    Visit.create(visitor: visitor, room: Room.first_room)
-    redirect_to room_path(Room.first_room)
+    current_visitor.create_visit!
+    redirect_to current_visitor.current_room
   end
 end

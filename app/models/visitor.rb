@@ -2,8 +2,6 @@ class Visitor < ApplicationRecord
   has_many :visits, dependent: :destroy
   has_one :current_visit, -> { where(ended_at: nil) }, class_name: "Visit"
 
-  before_create :set_uuid
-
   def current_room
     current_visit.current_room
   end
@@ -16,13 +14,7 @@ class Visitor < ApplicationRecord
     current_visit.go_to_room(room)
   end
 
-  def create_visit
-    Visit.create(visitor: self)
-  end
-
-  private
-
-  def set_uuid
-    self.id = SecureRandom.uuid if id.blank?
+  def create_visit!
+    visits.create!
   end
 end

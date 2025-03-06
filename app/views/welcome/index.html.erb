@@ -11,7 +11,9 @@
   <div class="welcome__content">
     <h1 class="welcome__title">Welcome to the AMuseum</h1>
     <p class="welcome__text">Discover the world of AMazing art and culture</p>
-    <%= link_to "Enter", room_path(Room.first_room), class: "button button--primary welcome__button" %>
+    <%= form_with(url: visits_path, method: :post, class: "welcome__form") do |f| %>
+      <%= f.button "Enter", class: "button button--primary welcome__button" %>
+    <% end %>
   </div>
 </div>
 <script>

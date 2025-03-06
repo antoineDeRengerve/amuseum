@@ -43,6 +43,11 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.welcome__form {
+  display: inline-block;
+  margin: 0;
+}
+
 .welcome__button {
   font-size: var(--font-size-lg);
 }
