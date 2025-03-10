@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_06_105542) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_10_161304) do
+  create_table "exhibition_rooms", force: :cascade do |t|
+    t.integer "exhibition_id", null: false
+    t.integer "room_id", null: false
+    t.integer "order", null: false
+    t.index ["exhibition_id", "room_id"], name: "index_exhibition_rooms_on_exhibition_id_and_room_id", unique: true
+    t.index ["exhibition_id"], name: "index_exhibition_rooms_on_exhibition_id"
+    t.index ["room_id"], name: "index_exhibition_rooms_on_room_id"
+  end
+
+  create_table "exhibitions", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.string "room_background_url"
@@ -57,6 +73,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_06_105542) do
     t.index ["visitor_id"], name: "index_visits_on_visitor_id"
   end
 
+  add_foreign_key "exhibition_rooms", "exhibitions"
+  add_foreign_key "exhibition_rooms", "rooms"
   add_foreign_key "rooms", "rooms", column: "next_room_id"
   add_foreign_key "rooms", "rooms", column: "prev_room_id"
   add_foreign_key "sessions", "users"

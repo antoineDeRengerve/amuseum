@@ -1,7 +1,13 @@
 require "test_helper"
 
 class RoomsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @room = rooms(:one)
+  end
+
+  test "should show room if any" do
+    get room_path(@room)
+    assert_response :success
+    assert_select ".room__title", text: @room.name
+  end
 end

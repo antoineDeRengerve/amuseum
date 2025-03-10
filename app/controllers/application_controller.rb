@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       # Recreate the cookie to extend the expiration time whenever there is activity
       cookies.signed[:visitor_id] = {
         value: visitor.id,
-        expires: 1.minute.from_now,
+        expires: 1.week.from_now,
         httponly: true,
         secure: Rails.env.production?,
         same_site: :strict
