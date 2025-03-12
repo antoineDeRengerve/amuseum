@@ -14,7 +14,9 @@ class Visitor < ApplicationRecord
     current_visit.go_to_room(room)
   end
 
-  def create_visit!
-    visits.create!
+  # Creates a new visit for the visitor
+  # If no exhibition is provided, the current exhibition is used
+  def create_visit!(exhibition: Exhibition.current)
+    visits.create!(exhibition: exhibition)
   end
 end

@@ -6,6 +6,7 @@ one:
   last_activity_at: 2025-03-06 11:55:42
   current_room: one
   visitor: one
+  exhibition: one
 
 two:
   started_at: 2025-03-06 11:55:42
@@ -13,3 +14,4 @@ two:
   last_activity_at: 2025-03-06 11:55:42
   current_room: two
   visitor: two
+  exhibition: one

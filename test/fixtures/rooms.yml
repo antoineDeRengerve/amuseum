@@ -16,4 +16,17 @@ three:
   name: Room 3
   room_background_url: /rooms/room-3.jpg
   prev_room_id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+  next_room_id: <%= ActiveRecord::FixtureSet.identify(:four) %>
 
+four:
+  name: Room 4
+  room_background_url: /rooms/room-4.jpg
+  prev_room_id: <%= ActiveRecord::FixtureSet.identify(:three) %>
+  next_room_id: <%= ActiveRecord::FixtureSet.identify(:five) %>
+
+five:
+  name: Room 5
+  room_background_url: /rooms/room-5.jpg
+  prev_room_id: <%= ActiveRecord::FixtureSet.identify(:four) %>
+  
+  
