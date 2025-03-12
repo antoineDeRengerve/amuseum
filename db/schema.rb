@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_10_161304) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_12_144034) do
   create_table "exhibition_rooms", force: :cascade do |t|
     t.integer "exhibition_id", null: false
     t.integer "room_id", null: false
@@ -21,8 +21,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_10_161304) do
   end
 
   create_table "exhibitions", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
+    t.date "start_date", null: false
+    t.date "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,7 +69,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_10_161304) do
     t.integer "visitor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "exhibition_id", null: false
     t.index ["current_room_id"], name: "index_visits_on_current_room_id"
+    t.index ["exhibition_id"], name: "index_visits_on_exhibition_id"
     t.index ["visitor_id"], name: "index_visits_on_visitor_id"
   end
 
@@ -78,6 +80,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_10_161304) do
   add_foreign_key "rooms", "rooms", column: "next_room_id"
   add_foreign_key "rooms", "rooms", column: "prev_room_id"
   add_foreign_key "sessions", "users"
+  add_foreign_key "visits", "exhibitions"
   add_foreign_key "visits", "rooms", column: "current_room_id"
   add_foreign_key "visits", "visitors"
 end

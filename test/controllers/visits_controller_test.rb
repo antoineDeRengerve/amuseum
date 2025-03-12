@@ -11,20 +11,19 @@ class VisitsControllerTest < ActionDispatch::IntegrationTest
 
   test "creating a visit sets visitor cookie" do
     post visits_path
-    assert cookies.signed[:visitor_id].present?
+    assert @response.cookies["visitor_id"].present?
   end
 
-  test "creating a visit with existing visitor reuses visitor" do
-    # Create initial visitor and visit
-    post visits_path
-    visitor_id = cookies.signed[:visitor_id]
+  test "creating a visit associated to visitor matching cookie" do
+    # Set the signed cookie using the integration session
+    # get root_path # Need to make an initial request to set cookies
+    cookies = ActionDispatch::Request.new(Rails.application.env_config).cookie_jar
+    visitor = visitors(:one)
+    cookies.signed[:visitor_id] = visitor.id
 
-    # Create another visit
-    assert_difference "Visit.count" do
-      post visits_path
-    end
+    post visits_path
 
     # Should use same visitor
-    assert_equal visitor_id, cookies.signed[:visitor_id]
+    assert_equal visitor.id, Visit.last.visitor.id
   end
 end
