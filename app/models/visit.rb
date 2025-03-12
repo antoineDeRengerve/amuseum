@@ -1,6 +1,7 @@
 class Visit < ApplicationRecord
   belongs_to :current_room, class_name: "Room", optional: true
   belongs_to :visitor
+  belongs_to :exhibition
 
   after_create :setup_visit, :end_previous_visits
 

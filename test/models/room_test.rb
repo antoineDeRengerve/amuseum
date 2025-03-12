@@ -27,7 +27,7 @@ class RoomTest < ActiveSupport::TestCase
   end
 
   test "room has no next room" do
-    room = rooms(:three)
+    room = rooms(:five)
     assert_nil room.next_room
   end
 
